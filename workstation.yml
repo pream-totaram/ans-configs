@@ -10,16 +10,18 @@
       - git
       - snapd
       - neovim-qt
-  - name: Download vim package manager
-    become: true
-    get_url:
-      url: https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh
-      dest: ~/install.sh
-      mode: 0777
-  - name: Install the package manager
-    command: sh ~/install.sh
-  - name: Install PHPStorm
+      - xclip  
+      - htop
+  - name: Install snaps with classic consignment
     become: true
     snap:
-      name: phpstorm
+      name: 
+        - phpstorm
+        - skype
+        - atom
       classic: yes
+  - name: Install snaps
+    become: true
+    snap:
+      name:
+        - docker
